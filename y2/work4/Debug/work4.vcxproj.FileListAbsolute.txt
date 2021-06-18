@@ -1,0 +1,4 @@
+E:\y1\work4\Debug\work4.exe
+E:\y1\work4\Debug\work4.pdb
+E:\y2\work4\Debug\work4.exe
+E:\y2\work4\Debug\work4.pdb
