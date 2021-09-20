@@ -1,0 +1,12 @@
+html {
+  background-color: white;
+  /* background-image: url("https://tse1-mm.cn.bing.net/th/id/R-C.c7d330b35d35374f76dc84ebb66a275b?rik=%2fsbYBPCdVg8j4g&riu=http%3a%2f%2fpic337.nipic.com%2ffile%2f20201029%2f710996_110815594087_2.jpg&ehk=n5zsCF1suGmJoye1M9SkJOGIahUCCIn75YSIGgt5KzM%3d&risl=&pid=ImgRaw&r=0"); */
+}
+image {
+  height: fit-content;
+  width: fit-content;
+}
+p {
+  height: fit-content;
+  width: fit-content;
+}
