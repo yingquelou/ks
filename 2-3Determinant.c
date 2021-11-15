@@ -3,7 +3,7 @@ typedef double Dtype;
 // 1 2 1 2
 // 3 4 3 4
 //二、三阶行列式求解
-Dtype Determinant(int Order, Dtype a[Order][Order])
+static Dtype Determinant(int Order, Dtype a[Order][Order])
 {
     if (Order < 2)
     {
@@ -12,6 +12,11 @@ Dtype Determinant(int Order, Dtype a[Order][Order])
     }
     if (Order == 2)
         return a[0][0] * a[1][1] - a[0][1] * a[1][0];
+    if (Order > 3)
+    {
+        puts("Order is too big!");
+        return 0;
+    }
     Dtype Sum = 0, Product = 1;
     int i = 0, j = 0, k = 0;
     // 主对角线系
@@ -37,7 +42,7 @@ Dtype Determinant(int Order, Dtype a[Order][Order])
     return Sum;
 }
 #include <stdlib.h>
-#define n 3
+#define n 4
 int main(void)
 {
     srand((unsigned)time(NULL));
