@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <time.h>
 #include <stdlib.h>
 typedef double Dtype;
-#define n 6
+#define n 80
 #define y 0
 static Dtype n_Determinant(int Order, Dtype a[Order][Order]);
 int main(void)
@@ -12,7 +13,10 @@ int main(void)
     {
         for (size_t j = 0; j < n; ++j)
         {
-            a[i][j] = rand() % 10 + 1;
+            /*  if (j == i)
+                a[i][i] = 0;
+            else */
+            a[i][j] = rand() % 100 + 1;
             if (j != n - 1)
                 printf("%.*lf,", y, a[i][j]);
             else
@@ -20,26 +24,30 @@ int main(void)
         }
         puts("");
     }
-    // puts("");
-    n_Determinant(n, a);
-    Dtype tmp = n_Determinant(n, a);
-    printf("%lf\n", tmp);
-    /* for (size_t i = 0; i < n; ++i)
+    puts("");
+    for (size_t i = 0; i < n; ++i)
     {
+        printf("[");
         for (size_t j = 0; j < n; ++j)
         {
             if (j != n - 1)
                 printf("%.*lf,", y, a[i][j]);
             else
-                printf("%.*lf,", y, a[i][j]);
+                printf("%.*lf", y, a[i][j]);
         }
-        puts("");
-    } */
+        printf("]");
+        if (i != n - 1)
+            puts(",");
+    }
+    puts("");
+    n_Determinant(n, a);
+    Dtype tmp = n_Determinant(n, a);
+    printf("%e\n", tmp);
     return 0;
 }
 Dtype n_Determinant(int Order, Dtype a[Order][Order])
 // 行列式转换为上三角,然后再求值
-// 暂未解决主对角线有零的问题
+// 暂未解决主对角线有零的情况
 {
     int i = 0, j = 0, l = 0;
     Dtype k = 0;
@@ -60,6 +68,10 @@ Dtype n_Determinant(int Order, Dtype a[Order][Order])
                 }
             }
         }
+        /* else
+        // 对角线有零的情况
+        {
+        } */
     }
     Dtype Product = 1;
     for (l = 0; l < Order; ++l)
