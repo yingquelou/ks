@@ -1,20 +1,32 @@
 #include <stdio.h>
-#include <math.h>
-typedef double mytype;
-#define T 1e6
-static mytype fun(mytype lim);
+// 等值演算
 int main(void)
 {
-    printf("%lf\n", fun(T));
-    return 0;
-}
-mytype fun(mytype lim)
-{
-    mytype i = 1.0, tal = 0;
-    while (i <= lim)
+    printf("A B C\n");
+    for (size_t A = 0; A < 2; ++A)
     {
-        tal += pow(i, 1 / i);
-        ++i;
+        for (size_t B = 0; B < 2; ++B)
+        {
+            for (size_t C = 0; C < 2; ++C)
+            {
+                printf("%d\n",
+                       //    (!(((!(A && C)) || (B && C)) && ((!(B && C)) || (A && C)))) || (((!A) || B) && ((!B) || A))
+
+                       (!(((!(A || C)) || (B || C)) && ((!(B || C)) || (A || C)))) || (((!A) || B) && ((!B) || A)));
+                if (
+                    // (!(((!(A && C)) || (B && C)) && ((!(B && C)) || (A && C)))) || (((!A) || B) && ((!B) || A)))
+                    (!(((!(A || C)) || (B || C)) && ((!(B || C)) || (A || C)))) || (((!A) || B) && ((!B) || A)))
+                {
+                    ;
+                }
+                else
+                    printf("%d %d %d\n", A, B, C);
+            }
+            /* unsigned tmp = (!((A || (!B)) && (B || (!A)))) || (((!A) || B) && ((!B) || A));
+            if (tmp)
+                printf("%d %d %d\n", A, B,tmp); */
+        }
     }
-    return tal / lim;
+    puts("");
+    return 0;
 }
