@@ -3,6 +3,7 @@
 int main(void)
 {
     int P, Q, R;
+    printf("P Q R\n");
     for (P = 0; P < 2; ++P)
     {
         for (Q = 0; Q < 2; ++Q)
@@ -14,6 +15,5 @@ int main(void)
             }
         }
     }
-    getchar();
     return 0;
 }
