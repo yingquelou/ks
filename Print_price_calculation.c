@@ -3,7 +3,6 @@
 int main(void)
 {
     double c;
-    //Clear_buffer();
     while (c = my_choose())
         switch ((int)c)
         {

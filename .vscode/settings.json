@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.rc": "plaintext",
+        "_vimrc": "ssh_config",
+        ".vimc": "ini",
+        "print_price_calculation.h": "c"
+    }
+}
